@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PrincipalController">
+   <children>
+      <BorderPane layoutX="6.0" layoutY="6.0">
+         <left>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="130.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/logo.jpg" />
+                     </image>
+                  </ImageView>
+                  <Accordion>
+                    <panes>
+                        <TitledPane animated="false" prefWidth="210.0" text="Tons de Cinza">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="208.0">
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <Label text="\%R">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="txtFieldTonsCinzaRed" prefHeight="25.0" prefWidth="40.0" text="0">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <Label text="\%G">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="txtFieldTonsCinzaGreen" prefHeight="25.0" prefWidth="40.0" text="0">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <Label text="\%B">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="txtFieldTonsCinzaBlue" prefHeight="25.0" prefWidth="40.0" text="0">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <Button layoutX="14.0" layoutY="53.0" mnemonicParsing="false" onAction="#tonsDeCinza" text="Converter" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Limiarização">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Slider fx:id="sliderLimiar" layoutX="19.0" layoutY="14.0" max="255.0" min="1.0" prefHeight="14.0" prefWidth="170.0" snapToTicks="true" />
+                                    <Button layoutX="14.0" layoutY="37.0" mnemonicParsing="false" onAction="#limiar" text="Converter" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Ruidos">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <RadioButton fx:id="radioRuidoCruz" layoutX="17.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Cruz">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="radioRuidos" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="radioRuidoX" layoutX="98.0" layoutY="14.0" mnemonicParsing="false" text="x" toggleGroup="$radioRuidos" />
+                                    <RadioButton fx:id="radioRuido3x3" layoutX="139.0" layoutY="14.0" mnemonicParsing="false" text="3x3" toggleGroup="$radioRuidos" />
+                                    <Button layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#ruidosMedia" text="Media" />
+                                    <Button layoutX="87.0" layoutY="78.0" mnemonicParsing="false" onAction="#ruidosMediana" text="Mediana" />
+                                 </children></AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Negativa">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="22.0" layoutY="35.0" mnemonicParsing="false" onAction="#negativar" text="Converter" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Desafio 1">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="22.0" layoutY="35.0" mnemonicParsing="false" onAction="#desafio1" text="Converter" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Equalização de Histograma">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="22.0" layoutY="35.0" mnemonicParsing="false" onAction="#equalizarHistograma" text="Equalizar" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="Segmentação">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="104.0" layoutY="37.0" mnemonicParsing="false" onAction="#segmentar" text="Segmentar" />
+                                    <TextField fx:id="txtFieldQuantidadeSegmentacao" layoutX="24.0" layoutY="37.0" prefHeight="25.0" prefWidth="69.0" text="3" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" expanded="false" text="Simulado Prova">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="12.0" layoutY="78.0" mnemonicParsing="false" onAction="#colocarMoldura" prefHeight="25.0" prefWidth="185.0" text="Colocar moldura" />
+                                    <Label fx:id="lblG1" layoutX="102.0" layoutY="41.0" text="Px">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </opaqueInsets>
+                                       <padding>
+                                          <Insets right="25.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="txtFieldTamanhoMoldura" layoutX="64.0" layoutY="41.0" prefHeight="25.0" prefWidth="38.0" text="3" />
+                                    <RadioButton fx:id="radioCorPreto" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Preto">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="simuladoCorMoldura" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="radioCorAzul" layoutX="71.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Azul" toggleGroup="$simuladoCorMoldura" />
+                                    <RadioButton fx:id="radioCorVerde" layoutX="133.0" layoutY="14.0" mnemonicParsing="false" text="Verde" toggleGroup="$simuladoCorMoldura" />
+                                    <Button layoutX="12.0" layoutY="118.0" mnemonicParsing="false" onAction="#negativarETonsCinza" prefHeight="25.0" prefWidth="185.0" text="Negativo com Tons de Cinza" />
+                                    <Button layoutX="12.0" layoutY="161.0" mnemonicParsing="false" onAction="#identificarFiguras" prefHeight="25.0" prefWidth="185.0" text="Identificar figura" />
+                                    <Button layoutX="12.0" layoutY="199.0" mnemonicParsing="false" onAction="#rotacionarImagem" prefHeight="25.0" prefWidth="185.0" text="Rotacionar" />
+                                    <Button layoutX="12.0" layoutY="236.0" mnemonicParsing="false" onAction="#aumentarImagem" prefHeight="25.0" prefWidth="185.0" text="Aumentar" />
+                                    <Button layoutX="12.0" layoutY="272.0" mnemonicParsing="false" onAction="#diminuirImagem" prefHeight="25.0" prefWidth="185.0" text="Diminuir" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                    </panes>
+                  </Accordion>
+                  <TitledPane animated="false" expanded="false" text="Adição/Subtração">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Slider fx:id="sliderAddSub" layoutX="33.0" layoutY="14.0" onDragDetected="#moveSlideAddSub" onDragDone="#moveSlideAddSub" onDragDropped="#moveSlideAddSub" onDragEntered="#moveSlideAddSub" onDragExited="#moveSlideAddSub" onDragOver="#moveSlideAddSub" onMouseDragEntered="#moveSlideAddSub" onMouseDragExited="#moveSlideAddSub" prefHeight="14.0" prefWidth="145.0" snapToTicks="true" value="50.0" />
+                              <Button layoutX="19.0" layoutY="37.0" mnemonicParsing="false" onAction="#addImage" prefHeight="8.0" prefWidth="72.0" text="+">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="117.0" layoutY="37.0" mnemonicParsing="false" onAction="#subImage" prefHeight="8.0" prefWidth="72.0" text="-">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="lblAddSubImg1" layoutX="9.0" layoutY="13.0" text="50" />
+                              <Label fx:id="lblAddSubImg2" layoutX="183.0" layoutY="13.0" text="50" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" expanded="false" text="Prova 1">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="208.0">
+                           <children>
+                              <Button layoutX="12.0" layoutY="78.0" mnemonicParsing="false" onAction="#colocarGrade" prefHeight="25.0" prefWidth="185.0" text="Criar Grade" />
+                              <Label fx:id="lblG12" layoutX="59.0" layoutY="42.0" text="Px de distância">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets right="25.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="txtFieldDistanciaGrade" layoutX="21.0" layoutY="42.0" prefHeight="25.0" prefWidth="38.0" text="30" />
+                              <RadioButton fx:id="radioCorPretoGrade" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Preto">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="prova1CoresGrade" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="radioCorAzulGrade" layoutX="71.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Azul" toggleGroup="$prova1CoresGrade" />
+                              <RadioButton fx:id="radioCorVerdeGrade" layoutX="133.0" layoutY="14.0" mnemonicParsing="false" text="Verde" toggleGroup="$prova1CoresGrade" />
+                              <Button layoutX="12.0" layoutY="118.0" mnemonicParsing="false" onAction="#dividirHorizontalmente" prefHeight="25.0" prefWidth="185.0" text="Dividir Horizontalmente" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" layoutX="10.0" layoutY="360.0" text="Identificação de rostos">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="208.0">
+                           <children>
+                              <Button layoutX="12.0" layoutY="25.0" mnemonicParsing="false" onAction="#identificarRosto" prefHeight="25.0" prefWidth="185.0" text="Identificar" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" onDragDropped="#moveSlideAddSub" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="lblR" text="R:">
+                           <font>
+                              <Font size="72.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="25.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="25.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="lblG" text="G:">
+                           <font>
+                              <Font size="72.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="25.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="25.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="lblB" text="B:">
+                           <font>
+                              <Font size="72.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets right="25.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="25.0" />
+                           </padding>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#gerarHistograma" text="Histograma" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <VBox>
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#abrirImagem1" text="Abrir Imagem 1">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <ScrollPane onDragDropped="#moveSlideAddSub" prefHeight="400.0" prefWidth="250.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                                       <children>
+                                          <ImageView fx:id="imgW1" fitHeight="150.0" fitWidth="200.0" onMouseMoved="#rastrearImg" onMousePressed="#selectOnMouse" onMouseReleased="#selectStopMouse" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#abrirImagem2" text="Abrir Imagem 2">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <ScrollPane prefHeight="400.0" prefWidth="250.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0">
+                                       <children>
+                                          <ImageView fx:id="imgW2" fitHeight="150.0" fitWidth="200.0" onMouseMoved="#rastrearImg" onMousePressed="#selectOnMouse" onMouseReleased="#selectStopMouse" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="260.0" layoutY="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" text="Salvar">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <ScrollPane prefHeight="400.0" prefWidth="250.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0">
+                                       <children>
+                                          <ImageView fx:id="imgW3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
